@@ -1,0 +1,105 @@
+-tailwind offers a set css utility classes that increase the speed of
+development to eliminate the need for writing custom css 
+
+-the idea of classes is so similar to bootstrap but in tailwind you can use JIT compiler to create an on demand class that matches with your design
+ex:   to let text of size  50px use text-[50px] it will generate a class with font-size of 50px
+
+LAYOUT:
+
+layout is all about the positioning of elements on the website 
+
+BREAKPOINTS:
+
+you can use max and min to represent of smaller or greater than the breakpoint size 
+ex:    max-md:block hidden   means on less than medium breakpoint apply display as block else the display of the element will be hidden 
+
+
+PSEUDO CLASS:
+just add in list of classes hover: with the style you want to have on hover
+focus: for focus
+first: to put style for first element
+odd: to put style for odd element in some list (same for even)
+
+
+DARK MODE:
+
+in config add export default {
+  darkMode:"class", //this line where you are telling tailwind to enable dark mode so dark mode will be activated when class dark is applied 
+  theme: {
+    extend: {
+      // ...
+    },
+  },
+  plugins: [],
+}
+
+
+<button id="toggleDark" class="text-blue-900 rounded-md " 
+        onclick="document.body.classList.toggle('dark')">
+</button>
+
+and give the element you want it to change a styling and add dark: with the dark styling so when clicking it will change between dark and light mode 
+
+
+TAILWIND CONFIG:
+
+it allows to seamlessly control and organize the visual style of the website 
+extend means you want to extend predefined colors in css
+ex:   in extend you can add    color:{ chestnut: 'certain value'    }  then you can use text-chestnut to access the customized color
+
+
+HOW TO AVOID PARAGRAPHS OF UTILITY CLASSES:
+
+1st: break layout to specific components 
+2nd: in css tab in tailwind add @layer components{
+                                   .className{
+                                       @apply the set of utility classes
+                                    }
+                                     add as much as needed classes here
+                                 }
+and just give the element the class name to get all the styles 
+3rd: use component libraries like shadcn, tailwindUI or headlessUI
+
+INSTALL TAILWIND USING VITE:
+
+npm create vite@latest ./ -- --template react
+npm install -D tailwindcss postcss autoprefixer  //to download dependencies that will not be used in production
+npx tailwindcss init -p  //initiaiize tailwind project
+then copy config from  website in the tailwind.config.js 
+add directives where you delete everything in index.css and add 
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+then copy new app too instead of everything we already have
+and delete app.css
+then npm run dev
+
+favicon.ico is the icon that appears in the browser on the top left so put it in public folder 
+
+
+if you press rafce then tab in a jsx file it will give a basic react arrow function
+
+IMPORTING SECTION IN APP.JSX:
+instead of importing every single one in app.jsx write them in index.js file and in app just import the index
+
+FAVICON LOGO:
+Files in the public directory are served at the root path.
+Instead of /public/logo.jpg, use /logo.jpg.
+
+WIDTHS AND HEIGHTS:
+
+min-h-screen : will take as minimum the full height of the screen
+we can also use ratios such as w-2/5 which is width as 2 fifth of the screen
+
+SUMMARY OF BREAKPOINTS IN TAILWIND CSS:
+
+
+min-xl means when xl breakpoint is applied and above and its the same as xl alone
+max-xl when breakpoint is strictly less than max 
+
+
+APPLYING LOGIC IN TAILWIND:
+
+to apply some functionalities or logic for a certain element we put the class name inside {``}
+
